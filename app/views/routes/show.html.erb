@@ -1,0 +1,15 @@
+
+<h1><%= @route.name %> stops in each of the listed cities below: </h1>
+<ul>
+<%@route.stops.each do |stop|  %>
+<li><%= stop.city_name %></li>
+<% end %>
+</ul>
+
+
+<h2> Additional Information </h2>
+-------------------------------------------------------
+
+
+
+
