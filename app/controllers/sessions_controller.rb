@@ -1,15 +1,19 @@
 class SessionsController < ApplicationController
+
+  include SessionsHelper
+
   def new
+    @errors = flash[:message]
   end
   
   def create
-    passenger = Passenger.find_by(email: params[:session][:email])
-    if passenger && passenger.authenticate(params[:session][:password])
+    passenger = Passenger.find_by(email: (params[:email]))
+    if passenger && passenger.authenticate(params[:password])
       session[:passenger_id] = passenger.id
-      redirect_to passenger
+      redirect_to passenger_path(passenger)
     else
-      flash.now[:message] = 'Invalid email/password combination' # Not quite right
-      render 'new'
+      redirect_to login_path
+      flash[:message] = "Invalid Credentials"
     end
   end
   
