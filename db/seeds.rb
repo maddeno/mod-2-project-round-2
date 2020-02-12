@@ -9,6 +9,9 @@ require 'faker'
 
 Route.destroy_all
 Stop.destroy_all
+Passenger.destroy_all
+Tier.destroy_all
+
 
 Route.create(name: "Niko - Northern Corridor", directions: "East/West", total_distance: 2850)
 Route.create(name: "Olivia - Southern Corridor", directions: "East/West", total_distance: 3000)
@@ -36,11 +39,11 @@ route_max_cities.each do |city|
 end
 
 
-Passenger.create(first_name: "Olivia", last_name: "Madden", email: "madden@gmail.com", password_digest: "Olivia")
+Passenger.create(first_name: "Olivia", last_name: "Madden", email: "madden@gmail.com", password: "Olivia")
 
-Passenger.create(first_name: "Niko", last_name: "Dixon", email: "dixon@gmail.com", password_digest: "Niko")
+Passenger.create(first_name: "Niko", last_name: "Dixon", email: "dixon@gmail.com", password: "Niko")
 
-Passenger.create(first_name: "Max", last_name: "McFadden", email: "mcfadden@gmail.com", password_digest: "Max")
+Passenger.create(first_name: "Max", last_name: "McFadden", email: "mcfadden@gmail.com", password: "Max")
 
 10.times do
     Passenger.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password_digest: Faker::Beer.unique.brand)
