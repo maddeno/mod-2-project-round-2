@@ -39,4 +39,6 @@
 
     <h2><%= f.label "Select your Ticket Tier" %></h2>
         <%= f.collection_select(:tier_id, Tier.all, :id, :name) %><br><br>
+
+        <%= f.submit "Book your Trip!" %>
 <% end %>
