@@ -1,0 +1,19 @@
+<h1>Edit your NOM Railways Account</h1>
+
+<% if @errors %>
+    <% @errors.each do|message| %>
+    <li><%= message %></li>
+    <% end %>
+<% end %><br><br>
+
+<%= form_for @passenger do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Update Account" %>
+<% end %>

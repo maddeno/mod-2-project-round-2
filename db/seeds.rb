@@ -53,3 +53,4 @@ Tier.create(name: "Suit", amenities: "Sleeper Car wih Shared Bath, Choice betwee
 
 Tier.create(name: "Sweatpants", amenities: "Comfy Seat in Standard Car, Access to Dining Car, Access to Bar", price: 0)
 
+

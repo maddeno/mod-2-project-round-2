@@ -6,7 +6,6 @@ class PassengersController < ApplicationController
     end
 
     def create
-        # byebug
         @passenger = Passenger.new(passenger_params)
         if @passenger.valid?
             @passenger.save
@@ -15,6 +14,27 @@ class PassengersController < ApplicationController
             redirect_to new_passenger_path
             flash[:errors] = @passenger.errors.full_messages
         end
+    end
+
+    def show
+        set_passenger
+    end
+
+    def edit
+        set_passenger
+        @errors = flash[:errors]
+    end
+    
+    def update
+        set_passenger
+        @passenger.assign_attributes(passenger_params)
+        if @passenger.valid?
+            @passenger.save
+            redirect_to passenger_path
+        else
+            redirect_to edit_passenger_path
+            flash[:errors] = @passenger.errors.full_messages 
+        end        
     end
 
 
