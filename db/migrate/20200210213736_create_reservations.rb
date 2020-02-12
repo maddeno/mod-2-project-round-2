@@ -6,7 +6,7 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.integer :tier_id
       t.string :destination_city 
       t.string :departure_city 
-      t.datetime :departure_date
+      t.string :departure_date
 
       t.timestamps
     end
