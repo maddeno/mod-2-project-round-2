@@ -11,17 +11,31 @@
         <%= f.text_field :departure_date %><br><br>
 
 
-    <h2><%= f.label "Select your Departure City" %></h2>
-    <ul><% Route.all.each do |route| %>
-        <%= f.label route.name %>
-        <%= f.collection_select(:route_id, route.stops.all, :route_id, :city_name)%><br>
-    <% end %></ul><br><br>
+    <h2><%= f.label "What route will you be traveling on?" %></h2>
+        <%= f.collection_select(:route_id, Route.all, :id, :name)%><br>
+     </ul><br><br>
 
-    <h2><%= f.label "Select your Destination City" %></h2>
+    <h2>What is your Departure City?</h2>
+    <%= f.label "Enter city name here:" %>
+    <%= f.text_field :departure_city, placeholder: "City"%><br>
     <ul><% Route.all.each do |route| %>
-        <%= f.label route.name %>
-        <%= f.collection_select(:route_id, route.stops.all, :route_id, :city_name)%><br>
-    <% end %></ul><br><br>
+        <p>Departure options for <%= route.name %>:</p>
+        <ul><% route.stops.each do |stop| %>
+        <li><%= stop.city_name %></li>
+        <% end %></ul><br><br>
+        <% end %>
+
+
+
+    <h2>What is your Destination City?</h2>
+    <%= f.label "Enter city name here:" %>
+    <%= f.text_field :destination_city, placeholder: "City"%><br>
+    <ul><% Route.all.each do |route| %>
+        <p>Destination options for <%= route.name %>:</p>
+        <ul><% route.stops.each do |stop| %>
+        <li><%= stop.city_name %></li>
+        <% end %></ul><br><br>
+        <% end %>
 
     <h2><%= f.label "Select your Ticket Tier" %></h2>
         <%= f.collection_select(:tier_id, Tier.all, :id, :name) %><br><br>
