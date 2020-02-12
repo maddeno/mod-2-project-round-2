@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_214440) do
     t.integer "tier_id"
     t.string "destination_city"
     t.string "departure_city"
-    t.datetime "departure_date"
+    t.string "departure_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

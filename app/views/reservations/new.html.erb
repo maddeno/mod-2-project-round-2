@@ -1,0 +1,28 @@
+<h1>Book a Reservation with NOM Railways!</h1>
+
+<% if @errors %>
+    <% @errors.each do|message| %>
+    <li><%= message %></li>
+    <% end %>
+<% end %><br><br>
+
+<%= form_for @reservation do |f| %>
+    <h2><%= f.label "Enter a Departure Date with the format (mm/dd/yyyy)" %></h2>
+        <%= f.text_field :departure_date %><br><br>
+
+
+    <h2><%= f.label "Select your Departure City" %></h2>
+    <ul><% Route.all.each do |route| %>
+        <%= f.label route.name %>
+        <%= f.collection_select(:route_id, route.stops.all, :route_id, :city_name)%><br>
+    <% end %></ul><br><br>
+
+    <h2><%= f.label "Select your Destination City" %></h2>
+    <ul><% Route.all.each do |route| %>
+        <%= f.label route.name %>
+        <%= f.collection_select(:route_id, route.stops.all, :route_id, :city_name)%><br>
+    <% end %></ul><br><br>
+
+    <h2><%= f.label "Select your Ticket Tier" %></h2>
+        <%= f.collection_select(:tier_id, Tier.all, :id, :name) %><br><br>
+<% end %>
