@@ -9,6 +9,7 @@ class PassengersController < ApplicationController
         @passenger = Passenger.new(passenger_params)
         if @passenger.valid?
             @passenger.save
+            session[:passenger_id] = @passenger.id
             redirect_to passenger_path(@passenger)
         else
             redirect_to new_passenger_path
