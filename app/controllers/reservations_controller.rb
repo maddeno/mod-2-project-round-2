@@ -34,6 +34,13 @@ class ReservationsController < ApplicationController
         end 
     end
 
+    def destroy
+        find_reservation
+        @passenger = @reservation.passenger_id
+        @reservation.destroy
+        redirect_to passenger_path(@passenger)
+    end
+
     private
 
     def find_reservation

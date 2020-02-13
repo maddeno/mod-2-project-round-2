@@ -38,6 +38,12 @@ class PassengersController < ApplicationController
         end        
     end
 
+    def destroy
+        set_passenger
+        @passenger.destroy
+        redirect_to login_path
+    end
+
 
     private
 
