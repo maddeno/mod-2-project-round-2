@@ -22,6 +22,7 @@ class Reservation < ApplicationRecord
     def ticket_price
         base_price = self.num_of_stops * 30
         base_price += self.tier.price
+        return "$#{base_price}"
     end
 
 

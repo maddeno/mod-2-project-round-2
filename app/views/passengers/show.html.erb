@@ -2,18 +2,16 @@
 
 <% if @passenger.reservations.any? %>
     <h2>Here are your current reservations:</h2>
-       <% @passenger.reservations.each do |res| %>
-            <h3>Your trip on <%= res.departure_date %></h3>
-            <li>Departure City: <%= res.departure_city %></li><br>
-            <li>Destination City: <%= res.destination_city %></li><br>
-            <%= link_to "Edit this Reservation", edit_reservation_path(res) %>
-            <%= link_to "Cancel this Reservation", reservation_path(res), method: "delete" %><br><br><br>
-    <% end %>
+      <ol> <% @passenger.reservations.each do |res| %>
+            <li><h3>Your trip on <%= res.departure_date %> to <%= res.destination_city %> </h3></li>
+            <%= link_to "View this Reservation", reservation_path(res) %>
+          <%end%>
+      </ol>
 <% else %>
     <h2>You have no current reservations.</h2>
-<% end %></ul>
+<% end %></ul><br><br>
 
-<%= link_to "Book a Reservation", new_reservation_path %>    
-<%= link_to "Update your Account Information", edit_passenger_path %>   
-<%= link_to "Logout", logout_path, method: "delete" %>   
+<%= link_to "Book a Reservation", new_reservation_path %> <br>  
+<%= link_to "Update your Account Information", edit_passenger_path %><br>   
+<%= link_to "Logout", logout_path, method: "delete" %>  <br>
 <%= link_to "Delete your Account", passenger_path(@passenger), method: "delete" %>

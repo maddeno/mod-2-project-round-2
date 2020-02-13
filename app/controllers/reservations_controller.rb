@@ -35,6 +35,10 @@ class ReservationsController < ApplicationController
         end 
     end
 
+    def show 
+        find_reservation
+    end 
+
     def destroy
         find_reservation
         @passenger = @reservation.passenger_id
