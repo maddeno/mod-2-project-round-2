@@ -7,4 +7,7 @@ class Passenger < ApplicationRecord
     validates_uniqueness_of :email
     validates_presence_of :password
     
+    # def reservations
+    #     self.reservations.all
+    # end
 end

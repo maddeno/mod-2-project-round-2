@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
     end
 
     def edit
+        @errors = flash[:errors]
         find_reservation
     end
 
