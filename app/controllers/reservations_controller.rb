@@ -1,4 +1,6 @@
+
 class ReservationsController < ApplicationController
+    include SessionsHelper
 
     def new
         @errors = flash[:errors]
@@ -6,7 +8,7 @@ class ReservationsController < ApplicationController
     end
 
     def create
-        @reservation = Reservation.new(reservation_params)
+        @reservation = Reservation.new(reservation_params.merge({passenger_id: session[:passenger_id]}))
         if @reservation.valid?
             @reservation.save
             redirect_to passenger_path(@reservation.passenger)
@@ -17,9 +19,26 @@ class ReservationsController < ApplicationController
     end
 
     def edit
+        find_reservation
     end
 
     def update
+        find_reservation
+        @reservation.assign_attributes(reservation_params)
+        if @reservation.valid?
+            @reservation.save
+            redirect_to passenger_path(@reservation.passenger_id)
+        else
+            redirect_to edit_reservation_path
+            flash[:errors] = @reservation.errors.full_messages
+        end 
+    end
+
+    def destroy
+        find_reservation
+        @passenger = @reservation.passenger_id
+        @reservation.destroy
+        redirect_to passenger_path(@passenger)
     end
 
     private
@@ -29,7 +48,7 @@ class ReservationsController < ApplicationController
     end
 
     def reservation_params
-
+        params.require(:reservation).permit(:departure_date, :route_id, :departure_city, :destination_city, :tier_id)
     end
 
 
