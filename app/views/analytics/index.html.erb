@@ -1,0 +1,16 @@
+<h1>Analytics Summary</h1>
+<%= @reservations.count %>
+<ul><% @stops.each do |stop| %>
+    <% if stop.departure_counter > 0 %>
+    <li><%=stop.city_name%>: <%= stop.departure_counter %>
+    </li> 
+    <% end %>
+<% end %>
+    </ul>
+<ul><% @tiers.each do |t| %>
+    <% if t.tier_counter  > 0%>
+        <li><%=t.name %>: <%= t.tier_counter %>
+        </li> 
+    <% end %>
+<% end %>
+    </ul>
