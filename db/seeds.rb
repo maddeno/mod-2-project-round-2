@@ -58,18 +58,18 @@ Tier.create(name: "Suit", amenities: "Sleeper Car wih Shared Bath, Choice betwee
 Tier.create(name: "Sweatpants", amenities: "Comfy Seat in Standard Car, Access to Dining Car, Access to Bar", price: 0)
 
 
-dates = ["02/14/2020", "05/06/2020", "02/20/2020", "03/05/2020", "01/08/2021", "04/09/2020", "08/13/2020", "10/12/2020" ]
+dates_stuff = ["02/14/2020", "05/06/2020", "02/20/2020", "03/05/2020", "01/08/2021", "04/09/2020", "08/13/2020", "10/12/2020" ]
 
 10.times do
-    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.first.id, tier_id: Tier.all.ids.sample, destination_city: route_niko_cities.sample, departure_city: route_niko_cities.sample, departure_date: dates.sample )
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.first.id, tier_id: Tier.all.ids.sample, destination_city: route_niko_cities.sample, departure_city: route_niko_cities.sample, departure_date: dates_stuff.sample )
 end
 
 10.times do
-    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.second.id, tier_id: Tier.all.ids.sample, destination_city: route_olivia_cities.sample, departure_city: route_olivia_cities.sample, departure_date: dates.sample )
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.second.id, tier_id: Tier.all.ids.sample, destination_city: route_olivia_cities.sample, departure_city: route_olivia_cities.sample, departure_date: dates_stuff.sample )
 end
 
 10.times do
-    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.last.id, tier_id: Tier.all.ids.sample, destination_city: route_max_cities.sample, departure_city: route_max_cities.sample, departure_date: dates.sample )
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.last.id, tier_id: Tier.all.ids.sample, destination_city: route_max_cities.sample, departure_city: route_max_cities.sample, departure_date: dates_stuff.sample )
 end
 
 

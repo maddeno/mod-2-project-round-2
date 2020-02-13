@@ -1,0 +1,18 @@
+<h1>Your trip on <%= @reservation.departure_date %> to <%= @reservation.destination_city %></h1><br>
+
+
+<h3><li>Departure City: <%= @reservation.departure_city %></h3></li>
+<h3><li>Destination City: <%= @reservation.destination_city %></li></h3>
+<h3><li>Tier: <%=@reservation.tier.name %>, which includes:</h3>  
+ <ol><%@reservation.tier.amenities.split(",").each do |amenity| %>
+   <li><%= amenity %></li>
+     <%end%><br>
+ </ol>
+
+   <h3><li> You will be traveling a total of <%=@reservation.num_of_stops%> stops.</li> </h3>
+<h3><li>Total Amount Paid: <%= @reservation.ticket_price %></h3><br>
+
+<%= link_to "Edit this Reservation", edit_reservation_path(@reservation) %>
+<%= link_to "Cancel this Reservation", reservation_path(@reservation), method: "delete" %><br><br><br>
+<%= link_to "Back to All Reservations", passenger_path(@reservation.passenger) %>
+  
