@@ -45,7 +45,7 @@ Passenger.create(first_name: "Niko", last_name: "Dixon", email: "dixon@gmail.com
 
 Passenger.create(first_name: "Max", last_name: "McFadden", email: "mcfadden@gmail.com", password: "Max")
 
-10.times do
+30.times do
     Passenger.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password_digest: Faker::Beer.unique.brand)
 end
 
@@ -55,5 +55,20 @@ Tier.create(name: "Monocle", amenities: "Private Car with Bed & Bath, Fancy Meal
 Tier.create(name: "Suit", amenities: "Sleeper Car wih Shared Bath, Choice between 3 Meal-options, 2 Drink-tickets per Stop included", price: 500)
 
 Tier.create(name: "Sweatpants", amenities: "Comfy Seat in Standard Car, Access to Dining Car, Access to Bar", price: 0)
+
+
+dates = ["02/14/2020", "05/06/2020", "02/20/2020", "03/05/2020", "01/08/2021", "04/09/2020", "08/13/2020", "10/12/2020" ]
+
+10.times do
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.first.id, tier_id: Tier.all.ids.sample, destination_city: route_niko_cities.sample, departure_city: route_niko_cities.sample, departure_date: dates.sample )
+end
+
+10.times do
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.second.id, tier_id: Tier.all.ids.sample, destination_city: route_olivia_cities.sample, departure_city: route_olivia_cities.sample, departure_date: dates.sample )
+end
+
+10.times do
+    Reservation.create(passenger_id: Passenger.all.ids.sample, route_id: Route.last.id, tier_id: Tier.all.ids.sample, destination_city: route_max_cities.sample, departure_city: route_max_cities.sample, departure_date: dates.sample )
+end
 
 
