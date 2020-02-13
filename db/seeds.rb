@@ -11,6 +11,7 @@ Route.destroy_all
 Stop.destroy_all
 Passenger.destroy_all
 Tier.destroy_all
+Reservation.destroy_all
 
 
 Route.create(name: "Niko - Northern Corridor", directions: "East/West", total_distance: 2850)
@@ -46,7 +47,7 @@ Passenger.create(first_name: "Niko", last_name: "Dixon", email: "dixon@gmail.com
 Passenger.create(first_name: "Max", last_name: "McFadden", email: "mcfadden@gmail.com", password: "Max")
 
 30.times do
-    Passenger.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password_digest: Faker::Beer.unique.brand)
+    Passenger.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: Faker::Beer.unique.brand)
 end
 
 
