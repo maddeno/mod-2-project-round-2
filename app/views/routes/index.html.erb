@@ -1,15 +1,19 @@
+<h3 class=login><%= link_to "Log In", login_path %> or <%= link_to "Create an Account", new_passenger_path %></h3>
+
 <h1> Welcome to NOM Railways!</h1> 
 <h2>Below you'll find brief descriptions of our 3 major routes:</h2><br>
 
 
 
---------------------------------------------------------------------------------------------------------------------------------
+
 <% @routes.each do |route|  %>
-<h2><%= route.name %></h2> 
-<h3> This line travels <%=route.directions %> for a total of <%= route.total_distance %> miles from <%= route.stops.first.city_name %> to <%= route.stops.last.city_name%>.</h3>
-<p><%= link_to "Click here", route_path(route) %> to see all the cities this line stops in.</p><br><br>
---------------------------------------------------------------------------------------------------------------------------------
+<h2 class="routes"><%= route.name %></h2> 
+<h3 class="routes"> This line travels <%=route.directions %> for a total of <%= route.total_distance %> miles from <%= route.stops.first.city_name %> to <%= route.stops.last.city_name%>.</h3>
+<p class="routes"><%= link_to "Click here", route_path(route) %> to see all the cities this line stops in.</p><br><br>
+
 <% end %>
 
-<h3><%= link_to "Log In", login_path %> or <%= link_to "Create an Account", new_passenger_path %></h3>
+<h3><%= link_to "Click here", analytics_path %> to see our most popular travel options</h3>
+
+
 
