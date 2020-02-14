@@ -1,5 +1,13 @@
 <h1>Analytics Summary</h1>
+
+<h3> Total Revenue to Date:</h3>
+$<%= @reservations.total_revenue %>
+
+<div>
+<h3> Bookings to Date:</h3>
 <%= @reservations.count %>
+
+<h3> Total Bookings by Destination:</h3>
 <ul><% @stops.each do |stop| %>
     <% if stop.departure_counter > 0 %>
     <li><%=stop.city_name%>: <%= stop.departure_counter %>
@@ -7,9 +15,11 @@
     <% end %>
 <% end %>
     </ul>
+
+<h3> Total Bookings by Tier:</h3>
 <ul><% @tiers.each do |t| %>
-    <% if t.tier_counter  > 0%>
-        <li><%=t.name %>: <%= t.tier_counter %>
+    <% if t.reservations.count  > 0%>
+        <li><%=t.name %>: <%= t.reservations.count %>
         </li> 
     <% end %>
 <% end %>

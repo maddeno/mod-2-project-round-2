@@ -10,7 +10,7 @@
  </ol>
 
    <h3><li> You will be traveling a total of <%=@reservation.num_of_stops%> stops.</li> </h3>
-<h3><li>Total Amount Paid: <%= @reservation.ticket_price %></h3><br>
+<h3><li>Total Amount Paid: $<%= @reservation.ticket_price %></h3><br>
 
 <%= link_to "Edit this Reservation", edit_reservation_path(@reservation) %>
 <%= link_to "Cancel this Reservation", reservation_path(@reservation), method: "delete" %><br><br><br>
