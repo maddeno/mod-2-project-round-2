@@ -9,6 +9,15 @@ $<%= @reservations.total_revenue %>
 
 <h3> Total Bookings by Destination:</h3>
 <ul><% @stops.each do |stop| %>
+    <% if stop.destination_counter > 0 %>
+    <li><%=stop.city_name%>: <%= stop.destination_counter %>
+    </li> 
+    <% end %>
+<% end %>
+    </ul>
+
+    <h3> Total Bookings by Departure City:</h3>
+<ul><% @stops.each do |stop| %>
     <% if stop.departure_counter > 0 %>
     <li><%=stop.city_name%>: <%= stop.departure_counter %>
     </li> 
