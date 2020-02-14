@@ -22,7 +22,22 @@ class Reservation < ApplicationRecord
     def ticket_price
         base_price = self.num_of_stops * 30
         base_price += self.tier.price
-        return "$#{base_price}"
+    end
+
+    def self.total_revenue 
+        total = 0
+        self.all.each do |res|
+        total += res.ticket_price
+        end
+        total
+    end
+
+    def reservation_hash
+        Reservation.all.map {|reservation| {reservation.destination_city=> Reservation.all.select{|r| r.destination_city == reservation.destination_city}.count }}
+    end
+
+    def reservation_count
+        reservation_hash.uniq.sort_by {|k,v| v}.reverse
     end
 
 
