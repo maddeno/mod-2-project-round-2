@@ -1,6 +1,8 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "semantic-ui";
+
 #passenger {
     font: 100% Helvetica, sans-serif;
     color: #333;
@@ -18,7 +20,7 @@
     font-size: 100%;
 }
 
-#links {  background-color: #FFF5EE;
+#links {  
     color: purple;
     font: 100% Helvetica, sans-serif;
     text-align: center;
@@ -40,6 +42,12 @@
     color: #333;
     text-align: center;
     font-variant: small-caps;
+    font-size: 140%;
+
+}
+
+
+#forms {
     font-size: 140%;
 
 }
