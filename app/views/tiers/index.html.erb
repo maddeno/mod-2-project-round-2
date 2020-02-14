@@ -1,10 +1,23 @@
-<h1> Tiers available as a NOM Railways passenger. </h1>
-
-
-<% @tiers.each do |tier| %>
-  <h2>Our <%= tier.name %> package includes:</h3>
-   <% tier.amenities.split(",").each do |amenity| %>
-   <li><%= amenity %></li><br>
-   <% end %>
-   The cost of this tier is $<%= tier.price %> in addition to base cost of travel.<br><br><br>
-   <% end %>
+<h2> Tiers available as a NOM Railways passenger: </h2>
+  <table class="ui celled table" >
+  <thead>
+    <tr><th>Name</th>
+    <th>Amenties</th>
+    <th>Price</th>
+    
+  </tr></thead>
+  <tbody>
+   <% @tiers.each do |tier| %>
+    <tr>
+      <td data-label="Name"><h2><%= tier.name %></h2></td>
+      <td data-label="Amenities">
+      <%tier.amenities.split(",").each do |amenity| %>
+         <li><%= amenity %></li><br>
+      <% end %>
+      <td data-label="Price">$<%= tier.price %></td><br>
+      <% end %>
+   
+    </tr>
+    
+  </tbody>
+</table>
