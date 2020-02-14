@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get '/select_route',  to: 'reservations#new'
+  post '/select_route', to: 'reservations#create'
   
   resources :stops
   resources :tiers

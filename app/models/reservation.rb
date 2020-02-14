@@ -10,6 +10,10 @@ class Reservation < ApplicationRecord
     validates_presence_of :destination_city
     validates_presence_of :tier_id
 
+    accepts_nested_attributes_for :routes
+
+    
+
     def num_of_stops
         departure_stop = Stop.find_by(city_name: self.departure_city)
         destination_stop = Stop.find_by(city_name: self.destination_city)

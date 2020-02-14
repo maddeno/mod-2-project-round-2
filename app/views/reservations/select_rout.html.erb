@@ -1,0 +1,6 @@
+<h1></h1>
+<%= form_for @reservation do |f| %>
+    <%= f.collection_select(:route_id, Route.all, :id, :name) %>
+    
+    <%= link_to "Next", new_reservation_path %>
+<% end %>
