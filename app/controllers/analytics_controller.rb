@@ -5,5 +5,6 @@ class AnalyticsController < ApplicationController
         @reservations = Reservation.all
         @stops = Stop.all
         @tiers = Tier.all
+        # render 'analytics/index'
     end 
 end
