@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ .module {
+    position: relative;
+  }
+  .module::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url(https://visitoceanside.org/wp-content/uploads/2019/07/Amtrak-Train-Crop-Small.jpg);
+    filter: grayscale(100%);
+  }
+
+
+
+
+
+
